@@ -36,8 +36,8 @@ namespace Urlcorto
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<UrlcortoContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("UrlcortoContext")));
+            services.AddDbContext<GCPContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("GCPContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
