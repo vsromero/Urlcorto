@@ -21,8 +21,11 @@
 
 @if (Model.MyUrl != null)
 {
+    var rootURL = HttpContext.Request.Host;
+    var scheme = HttpContext.Request.Scheme;
+    var shortenedURL = $"{scheme}://{rootURL}/{Model.MyUrl.ShortenedUrl}";
     <div class="card">
         <div class="card-header bg-success text-white"><h5>Success!</h5></div>
-        <div class="card-body"><p>Your link <strong><a href="@Model.MyUrl.UrlToShorten">@Model.MyUrl.UrlToShorten</a></strong> has been shortened to <strong><a href="@Model.MyUrl.ShortenedUrl">@Model.MyUrl.ShortenedUrl</a></strong></p></div>
+        <div class="card-body"><p>Your link <strong><a href="@Model.MyUrl.UrlToShorten">@Model.MyUrl.UrlToShorten</a></strong> has been shortened to <strong><a href="@Model.MyUrl.ShortenedUrl">@shortenedURL</a></strong></p></div>
     </div>
 }
